@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Portofolio - Fiqri</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mogra&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Knewave&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/yourKitID.js" crossorigin="anonymous"></script>
+</head>
+
+<!-- Tombol Back to Top -->
+<!-- Tombol Back to Top -->
+<button onclick="scrollToTop()" id="backToTopBtn" title="Kembali ke atas">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<style>
+    #backToTopBtn {
+        position: fixed;
+        bottom: 40px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        background-color: #ffc107;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        /* Awal kondisi sembunyi */
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(30px) scale(1);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    /* Hover: membesar */
+    
+    #backToTopBtn:hover {
+        transform: translateY(0) scale(1.15);
+    }
+    /* Saat muncul */
+    
+    #backToTopBtn.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+    }
+</style>
+
+<script>
+    const backToTopBtn = document.getElementById("backToTopBtn");
+
+    // Tampilkan tombol saat scroll ke bawah
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+            backToTopBtn.classList.add("show");
+        } else {
+            backToTopBtn.classList.remove("show");
+        }
+    });
+
+    // Custom smooth scroll lambat ke atas
+    function scrollToTop() {
+        const duration = 1000; // Lama animasi dalam milidetik (1000ms = 1 detik)
+        const start = window.scrollY;
+        const startTime = performance.now();
+
+        function scrollStep(timestamp) {
+            const progress = timestamp - startTime;
+            const percent = Math.min(progress / duration, 1); // Batasi ke max 1
+
+            // Ease-out effect (decelerate)
+            const ease = 1 - Math.pow(1 - percent, 3);
+
+            window.scrollTo(0, start * (1 - ease));
+
+            if (percent < 1) {
+                requestAnimationFrame(scrollStep);
+            }
+        }
+
+        requestAnimationFrame(scrollStep);
+    }
+</script>
+
+
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand text-2" href="index.html">Portfolio</a>
+            <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav nav ml-auto text-2">
+                    <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+                    <li class="nav-item"><a href="#about-section" class="nav-link"><span>About Me</span></a></li>
+                    <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
+                    <li class="nav-item"><a href="#software-section" class="nav-link"><span>Software</span></a></li>
+                    <li class="nav-item"><a href="#certificate-section" class="nav-link"><span>Certificate</span></a></li>
+                    <li class="nav-item"><a href="#project-section" class="nav-link"><span>Project</span></a></li>
+                    <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+        .text-1 {
+            font-family: "Caveat Brush", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        .text-2 {
+            font-family: "Permanent Marker", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        .text-3 {
+            font-family: "Permanent Marker", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        .text-4 {
+            font-family: "Mogra", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        .text-5 {
+            font-family: "Fuzzy Bubbles", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+    </style>
+
+    </head>
+
+    <body>
+
+        <section id="home-section" class="hero">
+            <div class="container">
+                <div class="row d-flex flex-wrap align-items-center">
+                    <!-- Gambar -->
+                    <div class="col-md-6 order-md-2 order-1 img-box d-flex justify-content-center">
+                        <div class="hero-image-box" style="background-image: url('images/bg_1.jpg');">
+                            <div class="hero-border"></div>
+                        </div>
+                    </div>
+                    <!-- Teks -->
+                    <div class="col-md-6 order-md-1 order-2 d-flex align-items-center">
+                        <div class="text-box text ftco-animate w-100">
+                            <span class="subheading">Hello!</span>
+                            <h2 class="mb-4 mt-3">I'm <span>Muhamad Fiqri Pratama</span></h2>
+                            <h2 class="mb-4 mt-3">
+                                I'm a <span class="typed-text"></span><span class="cursor">|</span>
+                            </h2>
+                            <p class="mb-4">Saya seorang 2D Artist yang senang berkembang bersama para developer indie game.</p>
+                            <div class="btn-group-wrapper mt-3">
+                                <a href="#" class="btn btn-primary custom-btn rounded p-3">Dwonload My CV</a>
+                                <a href="#" class="btn btn-white btn-outline-white custom-btn rounded p-3">My Portofolio Illustration</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            const texts = ["2D Artist", "UI/UX Designer"];
+            const typedTextSpan = document.querySelector(".typed-text");
+            const cursorSpan = document.querySelector(".cursor");
+
+            let textIndex = 0;
+            let charIndex = 0;
+            let typingDelay = 100;
+            let erasingDelay = 60;
+            let newTextDelay = 1500; // jeda sebelum hapus
+            let isDeleting = false;
+
+            function type() {
+                const currentText = texts[textIndex];
+
+                if (!isDeleting && charIndex <= currentText.length) {
+                    typedTextSpan.textContent = currentText.substring(0, charIndex++);
+                    setTimeout(type, typingDelay);
+                } else if (isDeleting && charIndex >= 0) {
+                    typedTextSpan.textContent = currentText.substring(0, charIndex--);
+                    setTimeout(type, erasingDelay);
+                } else {
+                    isDeleting = !isDeleting;
+                    if (!isDeleting) textIndex = (textIndex + 1) % texts.length;
+                    setTimeout(type, newTextDelay);
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                setTimeout(type, newTextDelay);
+            });
+        </script>
+
+        <style>
+            /* 1. Section tinggi layar & posisi tengah */
+            
+            @media (min-width: 768px) {
+                /* Tambahkan jarak di antara teks dan gambar */
+                .text-box {
+                    padding-right: 30px;
+                    /* jarak dari teks ke gambar */
+                }
+                .hero-image-box {
+                    margin-left: 30px;
+                    /* jarak dari gambar ke teks */
+                }
+            }
+            
+            #home-section {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+            }
+            /* 2. Hero image box */
+            
+            .hero-image-box {
+                width: 100%;
+                height: 400px;
+                background-size: cover;
+                background-position: center;
+                border: 3px solid transparent;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                position: relative;
+                z-index: 1;
+                background-clip: padding-box;
+                overflow: hidden;
+            }
+            /* 3. Border gradasi animasi */
+            
+            .hero-image-box::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: 8px;
+                padding: 3px;
+                background: linear-gradient(270deg, #ff8a00, #e52e71, #00c3ff, #ff8a00);
+                background-size: 400% 400%;
+                animation: borderGradient 8s ease infinite;
+                z-index: -1;
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+            }
+            /* 4. Animasi gradasi */
+            
+            @keyframes borderGradient {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+            /* 5. Teks */
+            
+            .text-box {
+                padding: 20px;
+            }
+            /* 6. Responsive (Mobile only) */
+            
+            @media (max-width: 768px) {
+                #home-section {
+                    padding-top: 80px;
+                    flex-direction: column;
+                }
+                .hero-image-box {
+                    height: 300px;
+                    margin-bottom: 20px;
+                }
+                .text-box {
+                    text-align: center;
+                    margin-top: 20px;
+                }
+                .text-box .btn {
+                    margin: 5px;
+                }
+            }
+        </style>
+
+        <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+            <div class="container">
+                <div class="row d-flex">
+                    <div class="col-md-6 col-lg-5 d-flex">
+                        <div class="img-about img d-flex align-items-stretch">
+                            <div class="overlay"></div>
+                            <div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/bg_1.png);">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
+                        <div class="row justify-content-start pb-3">
+                            <div class="col-md-12 heading-section ftco-animate">
+                                <h2 class="mb-4 text-4">About Me</h2>
+                                <p>Saya adalah seorang 2D Artist yang fokus dalam pembuatan asset visual untuk game, mulai dari Design karakter, Asset , hingga UI. Saya memiliki semangat untuk terus berkembang dan berkolaborasi bersama para developer indie
+                                    game untuk pengalaman bermain yang berkesan.
+                                </p>
+                                <ul class="about-info mt-4 px-md-0 px-2">
+                                    <li class="d-flex"><span>Nama:</span> <span>Muhammad Fiqri Pratama</span></li>
+                                    <li class="d-flex"><span>Tanggal Lahir:</span> <span>26 November, 2007</span></li>
+                                    <li class="d-flex"><span>Alamat:</span> <span>Gg.Merpati 2, Gunung Batu, Bogor</span></li>
+                                    <li class="d-flex"><span>Email:</span> <span>keikochizuruuu@gmail.com</span></li>
+                                    <li class="d-flex"><span>No Telepon: </span> <span>+62 882-9948-8780</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ftco-section ftco-no-pb" id="resume-section">
+            <div class="container">
+                <div class="row justify-content-center pb-5">
+                    <div class="col-md-10 heading-section text-center ftco-animate">
+                        <h2 class="mb-4 text-4">Resume</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="resume-wrap ftco-animate">
+                            <span class="date">2014-2020</span>
+                            <h2>SDN Negri Panaragan 1</h2>
+                            <p class="mt-4">Saya menempuh pendidikan dasar di SDN Panaragan 1 selama enam tahun, dimulai dari kelas 1 hingga lulus di kelas 6. Selama bersekolah di sana, saya tidak hanya mendapatkan pembelajaran akademik tetapi juga dibekali dengan pendidikan
+                                karakter, kedisiplinan, dan kerja sama tim. Saya aktif juga mengikuti berbagai kegiatan sekolah seperti menjadi petugas upacara bendera, lomba calistung, bahkan mendapatkan juara mendongeng tingkat kabupaten/kota.</p>
+                        </div>
+                        <div class="resume-wrap ftco-animate">
+                            <span class="date">2023-Sekarang</span>
+                            <h2>SMK Negeri 1 Ciomas</h2>
+                            <p class="mt-4">Saya sekarang adalah siswa di SMKN 1 Ciomas, Saat ini, saya fokus mendalami jurusan Pengembangan Perangkat Lunak dan Gim (PPLG), dengan spesialisasi pada Game Design dan pembuatan game. Di sini, saya tidak hanya mempelajari
+                                dasar-dasar pemrograman dan pengembangan perangkat lunak, tetapi juga mendalami proses kreatif dan teknis dan pembuatan gim.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="resume-wrap ftco-animate">
+                            <span class="date">2020-2023</span>
+                            <h2>SMP Negri 4 Kota Bogor</h2>
+                            <p class="mt-4">Saya melanjutkan pendidikan menengah pertama di SMPN Negeri 4 Kota Bogor. Selama tiga tahun menempuh pendidikan di sekolah ini, saya mengalami banyak belajar baik secara akademik maupun non-akademik, saya juga menikuti ekstrakulikuller
+                                english club dimana disama saya memperdalam bahasa inggris saya.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ftco-section" id="software-section">
+            <div class="container">
+                <div class="row justify-content-center pb-5">
+                    <div class="col-md-12 heading-section text-center ftco-animate">
+                        <h2 class="mb-4 text-4">Software Used</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Software 1 -->
+                    <div class="col-lg-4 col-md-6 mb-4 text-center d-flex ftco-animate">
+                        <a class="flex-fill software-card illustrator">
+                            <div class="icon-wrapper">
+                                <img style="border-radius: 10px; height: 110px; width: 110px" src="asset/Adobe_Illustrator_CC_icon.svg" alt="Illustrator" />
+                            </div>
+                            <div class="desc mt-3">
+                                <h3 class="mb-4">Adobe Illustrator</h3>
+                                <hr class="divider" />
+                                <p class="text-white">Digunakan untuk membuat visual 2D berbasis vector untuk asset, background, dan character dalam game.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Software 2 -->
+                    <div class="col-lg-4 col-md-6 mb-4 text-center d-flex ftco-animate">
+                        <a class="flex-fill software-card photoshop">
+                            <div class="icon-wrapper">
+                                <img style="border-radius: 10px;" src="asset/Photoshop-logo.png" alt="Photoshop" />
+                            </div>
+                            <div class="desc mt-3">
+                                <h3 class="mb-3">Adobe Photoshop</h3>
+                                <hr class="divider" />
+                                <p class="text-white">Untuk visual semi-realism dan desain poster.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Software 3 -->
+                    <div class="col-lg-4 col-md-6 mb-4 text-center d-flex ftco-animate">
+                        <a class="flex-fill software-card aseprite">
+                            <div class="icon-wrapper">
+                                <img style="border-radius: 10px; height: 100px; width: 100px" src="asset/Logo_Aseprite.png" alt="Aseprite" />
+                            </div>
+                            <div class="desc mt-3">
+                                <h3 class="mb-3">Aseprite</h3>
+                                <hr class="divider" />
+                                <p class="text-white">Untuk membuat pixel art dan animasi karakter dalam game.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Software 4 -->
+                    <div class="col-lg-4 col-md-6 mb-4 text-center d-flex ftco-animate">
+                        <a class="flex-fill software-card procreate">
+                            <div class="icon-wrapper">
+                                <img style="border-radius: 10px; height: 100px; width: 100px" src="asset/procreate-pocket-2018-08-03.avif" alt="Procreate" />
+                            </div>
+                            <div class="desc mt-3">
+                                <h3 class="mb-3">Procreate</h3>
+                                <hr class="divider" />
+                                <p class="text-white">Untuk membuat animasi, sketch, dan asset sederhana.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Software 5 -->
+                    <div class="col-lg-4 col-md-6 mb-4 text-center d-flex ftco-animate">
+                        <a class="flex-fill software-card clipstudio">
+                            <div class="icon-wrapper">
+                                <img style="border-radius: 10px;    " src="asset/pngwing.com (13).png" alt="Clip Studio Paint" />
+                            </div>
+                            <div class="desc mt-3">
+                                <h3 class="mb-3">Clip Studio Paint</h3>
+                                <hr class="divider" />
+                                <p class="text-white">Untuk membuat ilustrasi anime sederhana maupun kompleks.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            /* Container untuk gambar */
+            
+            .icon-wrapper {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 2;
+                position: relative;
+            }
+            
+            .icon-wrapper img {
+                max-width: 100%;
+                max-height: 100%;
+                position: relative;
+                z-index: 2;
+            }
+            /* Kartu utama */
+            
+            .software-card {
+                display: block;
+                padding: 30px 20px;
+                border-radius: 10px;
+                background-color: rgba(255, 255, 255, 0.111);
+                /* abu samar */
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                transition: background-image 0.4s ease-in-out, background-color 0.4s ease-in-out;
+                position: relative;
+            }
+            
+            .divider {
+                border: none;
+                height: 2px;
+                background: #ffffff;
+                /* putih solid */
+                width: 60px;
+                margin: 0 auto 1rem;
+            }
+            /* Hover background dengan GIF */
+            
+            .illustrator:hover {
+                background-image: url('https://media.giphy.com/media/d31vTpVi1LAcDvdm/giphy.gif');
+            }
+            
+            .photoshop:hover {
+                background-image: url('https://media.giphy.com/media/l0HUpt2s9Pclgt9Vm/giphy.gif');
+            }
+            
+            .aseprite:hover {
+                background-image: url('https://media.giphy.com/media/3oKIPsx2VAYAgEHC12/giphy.gif');
+            }
+            
+            .procreate:hover {
+                background-image: url('https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif');
+            }
+            
+            .clipstudio:hover {
+                background-image: url('https://media.giphy.com/media/3oKIPoPc8tK6vF9S3O/giphy.gif');
+            }
+            /* Responsif */
+            
+            @media (max-width: 768px) {
+                .icon-wrapper {
+                    width: 120px;
+                    height: 120px;
+                }
+                .software-card {
+                    padding: 20px 10px;
+                }
+                .desc h3 {
+                    font-size: 1.2rem;
+                }
+                .desc p {
+                    font-size: 0.95rem;
+                }
+            }
+        </style>
+
+
+
+
+        <section class="ftco-section" id="certificate-section">
+            <div class="container">
+                <div class="row justify-content-center mb-3 pb-5">
+                    <div class="col-md-7 heading-section text-center ftco-animate">
+                        <h2 class="mb-2 text-4">Certificate</h2>
+                    </div>
+                </div>
+
+                <style>
+                    .certificate-preview {
+                        width: 100%;
+                        border: 1px solid #ddd;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        transition: transform 0.2s;
+                    }
+                    
+                    .certificate-preview:hover {
+                        transform: scale(1.03);
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                    }
+                    
+                    .modal-img {
+                        width: 100%;
+                        border-radius: 8px;
+                    }
+                    
+                    .modal-body .desc {
+                        margin-top: 15px;
+                        font-size: 16px;
+                        color: #333;
+                    }
+                    
+                    .custom-close-btn {
+                        margin-top: 20px;
+                        background-color: #dc3545;
+                        border: none;
+                        padding: 10px 20px;
+                        border-radius: 8px;
+                        color: #fff;
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
+                    
+                    .modal-header {
+                        display: none;
+                    }
+                    /* Modal ukuran sedang */
+                    
+                    .modal-dialog.modal-md {
+                        max-width: 600px;
+                    }
+                    
+                    .modal-body .desc {
+                        margin-top: 8px;
+                        font-size: 16px;
+                        color: #000;
+                        /* Warna teks deskripsi juga hitam */
+                    }
+                </style>
+
+                <div class="row g-4 ftco-animate">
+
+                    <!-- Sertifikat 1 -->
+                    <div class="col-12 col-md-4">
+                        <img src="asset/Sertifikat GGJ Bogor 2025 -  M.Fiqri.pratama.png" class="certificate-preview" alt="Sertifikat 1" data-bs-toggle="modal" data-bs-target="#modal1">
+                    </div>
+
+                    <!-- Sertifikat 2 -->
+                    <div class="col-12 col-md-4">
+                        <img src="asset/Dicoding_ Dasar Pemrograman _page-0001.jpg" class="certificate-preview" alt="Sertifikat 2" data-bs-toggle="modal" data-bs-target="#modal2">
+                    </div>
+
+                    <!-- Sertifikat 3 -->
+                    <div class="col-12 col-md-4">
+                        <img src="asset/Dicoding_Dasar_GoogleCloud_page-0001.jpg" class="certificate-preview" alt="Sertifikat 3" data-bs-toggle="modal" data-bs-target="#modal3">
+                    </div>
+
+                    <!-- Sertifikat 4 -->
+                    <div class="col-12 col-md-4">
+                        <img src="asset/Dicoding_Logika_Pemrograman_page-0001.jpg" class="certificate-preview" alt="Sertifikat 4" data-bs-toggle="modal" data-bs-target="#modal4">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Modal Sertifikat 1 -->
+            <div class="modal fade ftco-animate" id="modal1" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-md modal-dialog-centered">
+                    <div class="modal-content p-4">
+                        <div class="modal-body text-center">
+                            <img src="asset/Sertifikat GGJ Bogor 2025 -  M.Fiqri.pratama.png" class="modal-img" alt="Sertifikat 1">
+                            <h5 class="fw-bold mt-4 mb-2" style="color: #000; font-size: 22px;">Sertifikat GGJ Bogor 2025</h5>
+                            <p class="desc">Saya Ikut Berpartisipasi sebagai 2D artist dalam acara Global Game Jam Bogor 2025.</p>
+                            <button class="custom-close-btn" data-bs-dismiss="modal">Tutup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Sertifikat 2 -->
+            <div class="modal fade ftco-animate" id="modal2" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-md modal-dialog-centered">
+                    <div class="modal-content p-4">
+                        <div class="modal-body text-center">
+                            <img src="asset/Dicoding_ Dasar Pemrograman _page-0001.jpg" class="modal-img" alt="Sertifikat 2">
+                            <h5 class="fw-bold mt-4 mb-2" style="color: #000; font-size: 22px;">Dasar Pemrograman Dicoding</h5>
+                            <p class="desc">Saya mendapatkan sertifikasi dari Dicoding atas penyelesaian kelas dasar logika dan struktur pemrograman.</p>
+                            <button class="custom-close-btn" data-bs-dismiss="modal">Tutup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Sertifikat 3 -->
+            <div class="modal fade ftco-animate" id="modal3" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-md modal-dialog-centered">
+                    <div class="modal-content p-4">
+                        <div class="modal-body text-center">
+                            <img src="asset/Dicoding_Dasar_GoogleCloud_page-0001.jpg" class="modal-img" alt="Sertifikat 3">
+                            <h5 class="fw-bold mt-4 mb-2" style="color: #000; font-size: 22px;">Dasar Google Cloud Dicoding</h5>
+                            <p class="desc">Saya menyelesaikan pelatihan cloud computing dasar menggunakan layanan Google Cloud Platform.</p>
+                            <button class="custom-close-btn" data-bs-dismiss="modal">Tutup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Sertifikat 4 -->
+            <div class="modal fade ftco-animate" id="modal4" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-md modal-dialog-centered">
+                    <div class="modal-content p-4">
+                        <div class="modal-body text-center">
+                            <img src="asset/Dicoding_Logika_Pemrograman_page-0001.jpg" class="modal-img" alt="Sertifikat 4">
+                            <h5 class="fw-bold mt-4 mb-2" style="color: #000; font-size: 22px;">Logika Pemrograman Dicoding</h5>
+                            <p class="desc">Saya mendapatkan sertifikasi mendasar tentang logika algoritma dan struktur kontrol pemrograman.</p>
+                            <button class="custom-close-btn" data-bs-dismiss="modal">Tutup</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="ftco-section" id="project-section">
+            <div class="container">
+                <!-- Title -->
+                <div class="row justify-content-center mb-4">
+                    <div class="col-md-7 heading-section text-center ftco-animate">
+                        <h2 class="mb-4 text-4">Project</h2>
+                    </div>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="row justify-content-center mb-5 ftco-animate">
+                    <div class="col-12 col-md-auto text-center">
+                        <div class="tab-container d-inline-flex flex-wrap justify-content-center p-2 rounded-pill">
+                            <span class="filter-tab active" data-category="all">All</span>
+                            <span class="filter-tab" data-category="uiux">UI/UX</span>
+                            <span class="filter-tab" data-category="illustration">2D Illustration</span>
+                            <span class="filter-tab" data-category="pixel">Pixel Art</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Grid -->
+                <div class="row g-4 ftco-animate">
+
+                    <!-- Project 1 -->
+                    <div class="col-12 col-sm-6 col-md-4 project-item show ftco-animate" data-category="uiux">
+                        <img src="asset/Asset Web (1).png" class="project-preview" alt="Project 1" data-bs-toggle="modal" data-bs-target="#project1">
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="col-12 col-sm-6 col-md-4 project-item show ftco-animate" data-category="uiux">
+                        <img src="asset/Asset Web-Suki.png" class="project-preview" alt="Project 2" data-bs-toggle="modal" data-bs-target="#project2">
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="col-12 col-sm-6 col-md-4 project-item show ftco-animate" data-category="illustration">
+                        <img src="asset/Asset Web Encep.png" class="project-preview" alt="Project 3" data-bs-toggle="modal" data-bs-target="#project3">
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="col-12 col-sm-6 col-md-4 project-item show ftco-animate" data-category="pixel">
+                        <img src="asset/your-image4.jpg" class="project-preview" alt="Project 4" data-bs-toggle="modal" data-bs-target="#project4">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Modal Project 1 -->
+            <div class="modal fade ftco-animate" id="project1" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-md modal-dialog-centered">
+                    <div class="modal-content p-4">
+                        <div class="modal-body text-center">
+                            <img src="asset/Screenshot 2025-06-21 171756.png" class="img-fluid rounded mb-5" alt="Project 1">
+                            <h5 class="fw-bold mb-4" style="color: #000; font-size: 24px;">UI/UX Bloom Flower</h5>
+                            <p class="desc mb-5" style="font-size: 16px;">
+                                Saya dan teman teman saya membuat UI/UX Website Toko Bunga bernama "Bloom Flower" yang dimana warna UI nya didominasi oleh pink bagaikan bunga sakura
+                            </p>
+                            <div class="d-flex justify-content-between flex-wrap gap-2">
+                                <button class="btn px-4 rounded" style="background-color: #dc3545; color: white; font-size: 16px;" data-bs-dismiss="modal">Tutup</button>
+                                <a href="https://contoh-link.com" target="_blank" class="btn px-4 rounded" style="background-color: #0d6efd; color: white; font-size: 16px;">
+            Visit <i class="fa-solid fa-arrow-right ms-2"></i>
+          </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Project 2 -->
+            <div class="modal fade ftco-animate" id="project2" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-md modal-dialog-centered">
+                    <div class="modal-content p-4">
+                        <div class="modal-body text-center">
+                            <img src="asset/Asset Web Teka Teki Suki.png" class="img-fluid rounded mb-5" alt="Project 2">
+                            <h5 class="fw-bold mb-4" style="color: #000; font-size: 24px;">Aplikasi Teka Teki Suki</h5>
+                            <p class="desc mb-5" style="font-size: 16px;">
+                                Saya dan teman sekelompok saya membuat aplikasi game tentang teka teki yang dimana pengguna harus menebak jawaban yang benar dari teka teki tersebut, dan nantinya akan semakin susah dan menantang di setiap levelnya
+                            </p>
+                            <div class="d-flex justify-content-between flex-wrap gap-2">
+                                <button class="btn px-4 py-2 rounded" style="background-color: #dc3545; color: white; font-size: 16px;" data-bs-dismiss="modal">Tutup</button>
+                                <a href="https://contoh-link.com" target="_blank" class="btn px-4 py-2 rounded" style="background-color: #0d6efd; color: white; font-size: 16px;">
+            Visit <i class="fa-solid fa-arrow-right ms-2"></i>
+          </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Project 3 -->
+            <div class="modal fade ftco-animate" id="project3" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-md modal-dialog-centered">
+                    <div class="modal-content p-4">
+                        <div class="modal-body text-center">
+                            <img src="asset/Screenshot 2025-06-22 132438.png" class="img-fluid rounded mb-5" alt="Project 3">
+                            <h5 class="fw-bold mb-4" style="color: #000; font-size: 24px;">Game Encep Lari</h5>
+                            <p class="desc mb-5" style="font-size: 16px;">
+                                Game ini dibuat pada Global Game Jam Bogor Tahun 2024 dan saya menjadi Illustrator 2D nya, saya dan teman sekelompok saya membuat game yang dimana sang bayi harus kabur dari kejaran ibu tiri nya yang jahat, disisi lain sang bayi juga harus menghindari
+                                rintangan yang ada
+                            </p>
+                            <div class="d-flex justify-content-between flex-wrap gap-2">
+                                <button class="btn px-4 py-2 rounded" style="background-color: #dc3545; color: white; font-size: 16px;" data-bs-dismiss="modal">Tutup</button>
+                                <a href="https://contoh-link.com" target="_blank" class="btn px-4 py-2 rounded" style="background-color: #0d6efd; color: white; font-size: 16px;">
+            Visit <i class="fa-solid fa-arrow-right ms-2"></i>
+          </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Project 4 -->
+            <div class="modal fade ftco-animate" id="project4" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-md modal-dialog-centered">
+                    <div class="modal-content p-4">
+                        <div class="modal-body text-center">
+                            <img src="asset/your-image4.jpg" class="img-fluid rounded mb-5" alt="Project 4">
+                            <h5 class="fw-bold mb-4" style="color: #000; font-size: 24px;">Judul Project 4</h5>
+                            <p class="desc mb-5" style="font-size: 16px;">
+                                Deskripsi singkat tentang project 4.
+                            </p>
+                            <div class="d-flex justify-content-between flex-wrap gap-2">
+                                <button class="btn px-4 py-2 rounded" style="background-color: #dc3545; color: white; font-size: 16px;" data-bs-dismiss="modal">Tutup</button>
+                                <a href="https://contoh-link.com" target="_blank" class="btn px-4 py-2 rounded" style="background-color: #0d6efd; color: white; font-size: 16px;">
+            Visit <i class="fa-solid fa-arrow-right ms-2"></i>
+          </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <style>
+            /* Container kotak tab */
+            
+            .tab-container {
+                background-color: rgba(255, 255, 255, 0.05);
+                border: 2px solid white;
+                border-radius: 50px;
+            }
+            /* Tab item */
+            
+            .filter-tab {
+                padding: 10px 20px;
+                color: white;
+                cursor: pointer;
+                font-weight: 500;
+                margin: 5px 10px;
+                border-radius: 30px;
+                transition: all 0.4s ease;
+            }
+            
+            .filter-tab:hover,
+            .filter-tab.active {
+                background-color: #ffc107;
+                color: white;
+            }
+            /* Project animation */
+            
+            .project-item {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 1s ease;
+                display: none;
+            }
+            
+            .project-item.show {
+                display: block;
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .project-preview {
+                width: 100%;
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+                transition: transform 4s ease;
+                cursor: pointer;
+            }
+            
+            .project-preview:hover {
+                transform: scale(1.03);
+            }
+            
+            @media (max-width: 576px) {
+                .filter-tab {
+                    padding: 8px 14px;
+                    font-size: 14px;
+                    margin: 4px 6px;
+                }
+            }
+        </style>
+
+        <script>
+            const filterTabs = document.querySelectorAll(".filter-tab");
+            const projectItems = document.querySelectorAll(".project-item");
+
+            filterTabs.forEach(tab => {
+                tab.addEventListener("click", () => {
+                    filterTabs.forEach(t => t.classList.remove("active"));
+                    tab.classList.add("active");
+
+                    const category = tab.getAttribute("data-category");
+
+                    projectItems.forEach(item => {
+                        item.classList.remove("show");
+                        setTimeout(() => {
+                            const itemCategory = item.getAttribute("data-category");
+                            if (category === "all" || itemCategory === category) {
+                                item.classList.add("show");
+                            }
+                        }, 100);
+                    });
+                });
+            });
+        </script>
+
+        <div class="moving-image-wrapper ftco-animate">
+            <div class="moving-image img4"></div>
+            <div class="moving-image img3"></div>
+            <div class="moving-image img2"></div>
+            <div class="moving-image img1"></div>
+        </div>
+
+
+        <style>
+            .moving-image-wrapper {
+                width: 100vw;
+                height: 150px;
+                overflow: hidden;
+                position: relative;
+                background: transparent;
+            }
+            
+            .moving-image {
+                width: 100px;
+                height: 100px;
+                background-size: cover;
+                background-position: center;
+                border-radius: 50%;
+                position: absolute;
+                top: 25px;
+                animation: moveAndPause 16s ease-in-out infinite;
+            }
+            /* Gambar dan delay */
+            
+            .img1 {
+                background-image: url('asset/white-chibi.png');
+                animation-delay: 0s;
+            }
+            
+            .img2 {
+                background-image: url('asset/Logo_Aseprite.png');
+                animation-delay: 0.4s;
+            }
+            
+            .img3 {
+                background-image: url('asset/Photoshop-logo.png');
+                animation-delay: 0.8s;
+            }
+            
+            .img4 {
+                background-image: url('asset/procreate-pocket-2018-08-03.avif');
+                animation-delay: 1.2s;
+            }
+            /* Animasi ke kanan, lalu tunggu, lalu ke kiri, lalu tunggu */
+            
+            @keyframes moveAndPause {
+                0% {
+                    transform: translateX(0) rotate(0deg);
+                }
+                5% {
+                    transform: translateX(0) rotate(0deg);
+                    /* Pause di kiri */
+                }
+                45% {
+                    transform: translateX(calc(100vw - 100px)) rotate(1080deg);
+                }
+                55% {
+                    transform: translateX(calc(100vw - 100px)) rotate(1080deg);
+                    /* Pause di kanan */
+                }
+                95% {
+                    transform: translateX(0) rotate(0deg);
+                }
+                100% {
+                    transform: translateX(0) rotate(0deg);
+                    /* Pause di kiri akhir */
+                }
+            }
+            /* Responsif: percepat dan tetap sinkron */
+            
+            @media (max-width: 576px) {
+                .moving-image {
+                    animation: moveAndPauseMobile 12s ease-in-out infinite;
+                }
+                .img1 {
+                    animation-delay: 0s;
+                }
+                .img2 {
+                    animation-delay: 1.0s;
+                }
+                .img3 {
+                    animation-delay: 2.0s;
+                }
+                .img4 {
+                    animation-delay: 3.0s;
+                }
+                @keyframes moveAndPauseMobile {
+                    0%,
+                    10% {
+                        transform: translateX(0) rotate(0deg);
+                        /* Pause kiri */
+                    }
+                    45%,
+                    65% {
+                        transform: translateX(calc(100vw - 100px)) rotate(360deg);
+                        /* Pause kanan */
+                    }
+                    95%,
+                    100% {
+                        transform: translateX(0) rotate(0deg);
+                        /* Pause kiri akhir */
+                    }
+                }
+            }
+        </style>
+
+
+        <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+            <div class="container">
+                <div class="row justify-content-center mb-5 pb-3">
+                    <div class="col-md-7 heading-section text-center ftco-animate">
+                        <h2 class="mb-4 text-4">Contact Me</h2>
+                    </div>
+                </div>
+
+                <div class="row d-flex contact-info mb-5">
+                    <div class="icon1 col-md-6 col-lg-3 d-flex ftco-animate">
+                        <div class="align-self-stretch box p-4 text-center">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <i class="fa-brands fa-instagram fa-3x" style="color: #ffc107;"></i>
+                            </div>
+
+                            <h3 class="mb-4">Instagram</h3>
+                            <p>
+                                <a href="tel://1234567920">@mhmd_fiqq</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="icon1 col-md-6 col-lg-3 d-flex ftco-animate">
+                        <div class="align-self-stretch box p-4 text-center">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <i class="fa-brands fa-tiktok fa-3x" style="color: #ffc107;"></i>
+                            </div>
+                            <h3 class="mb-4">Tiktok</h3>
+                            <p>
+                                <a href="tel://1234567920">@onzyhn_</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="icon1 col-md-6 col-lg-3 d-flex ftco-animate">
+                        <div class="align-self-stretch box p-4 text-center">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <i class="fa-brands fa-youtube fa-3x" style="color: #ffc107;"></i>
+                            </div>
+                            <h3 class="mb-4">Youtube</h3>
+                            <p><a href="mailto:info@yoursite.com">@muhamadfiqrioratama787</a></p>
+                        </div>
+                    </div>
+                    <div class="icon1 col-md-6 col-lg-3 d-flex ftco-animate">
+                        <div class="align-self-stretch box p-4 text-center">
+                            <div class="icon d-flex align-items-center justify-content-center">
+                                <i class="fa-brands fa-linkedin-in fa-3x" style="color: #ffc107;"></i>
+                            </div>
+                            <h3 class="mb-4">Linkedin</h3>
+                            <p><a href="#">yoursite.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <style>
+                    /* Hover efek: membesarkan ikon */
+                    
+                    .icon1 i {
+                        transition: transform 0.3s ease;
+                    }
+                    
+                    .icon1:hover i {
+                        transform: scale(1.3);
+                    }
+                </style>
+
+                <div class="row no-gutters block-9 flex-column flex-md-row">
+                    <!-- Gambar -->
+                    <div class="col-md-6 d-flex order-1 order-md-1">
+                        <div class="img w-100" style="background-image: url(asset/Asset\ Web\ \(1\).png); background-size: cover; background-position: center;"></div>
+                    </div>
+
+                    <!-- Form -->
+                    <div class="col-md-6 d-flex order-2 order-md-2">
+                        <form action="#" class="bg-light p-4 p-md-5 contact-form w-100">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Name" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Email" />
+                            </div>
+                            <div class="form-group">
+                                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5 rounded" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <footer class="ftco-footer ftco-section">
+                    <div class="container">
+                        <div class="row mb-5">
+                            <div class="col-md">
+                                <div class="ftco-footer-widget mb-4">
+                                    <h2 class="ftco-heading-2">My Motivation</h2>
+                                    <p>Saya tertarik menjadi artis 2D game karena saya hobi menggambar dan ingin karya saya menjadi bagian dari dunia game. Saya ingin terus belajar untuk mendukung pengalaman bermain pemain dan menciptakan visual game yang
+                                        menarik.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="ftco-footer-widget mb-4 ml-md-4">
+                                    <h2 class="ftco-heading-2">Navbar</h2>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#home-section"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
+                                        <li><a href="#about-section"><span class="icon-long-arrow-right mr-2"></span>About Me</a></li>
+                                        <li><a href="#resume-section"><span class="icon-long-arrow-right mr-2"></span>Resume</a></li>
+                                        <li><a href="#software-section"><span class="icon-long-arrow-right mr-2"></span>Software</a></li>
+                                        <li><a href="#sertificate-section"><span class="icon-long-arrow-right mr-2"></span>Certificate</a></li>
+                                        <li><a href="#projects-section"><span class="icon-long-arrow-right mr-2"></span>Projects</a></li>
+                                        <li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md">
+                                <div class="ftco-footer-widget mb-4">
+                                    <h2 class="ftco-heading-2">Skills</h2>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>2D Artist</a></li>
+                                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Pixel Artist</a></li>
+                                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>UI/UX Designer</a></li>
+                                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Graphic Design</a></li>
+                                        <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Data Analysis</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md" style="text-align: left;">
+                                <div class="ftco-footer-widget mb-4">
+                                    <h2 class="ftco-heading-2">More Information</h2>
+                                    <div class="block-23 mb-3">
+                                        <ul style="padding: 0; list-style: none;">
+                                            <li style="margin-bottom: 10px; display: flex; align-items: center;">
+                                                <span class="icon icon-map-marker" style="margin-right: 8px;"></span>
+                                                <span class="text">Jln. Veteran, Gunung Batu, Gg.Merpati 2</span>
+                                            </li>
+                                            <li style="margin-bottom: 10px; display: flex; align-items: center;">
+                                                <span class="icon icon-phone" style="margin-right: 8px;"></span>
+                                                <span class="text">+62 882-9948-8780</span>
+                                            </li>
+                                            <li style="display: flex; align-items: center;">
+                                                <span class="icon icon-envelope" style="margin-right: 8px;"></span>
+                                                <span class="text">muhammadfiqripratama81@gmail.com</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+
+                                <p>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                    Copyright &copy;
+                                    <script>
+                                        document.write(new Date().getFullYear());
+                                    </script> All rights reserved | This template is made with bootstrap</i> by <a href="https://colorlib.com" target="_blank">Muhammad Fiqri Pratama</a>
+                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
+
+
+                <!-- loader -->
+                <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+                <!-- Bootstrap 5 -->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+                <script src="js/jquery.min.js"></script>
+                <script src="js/jquery-migrate-3.0.1.min.js"></script>
+                <script src="js/popper.min.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+                <script src="js/jquery.easing.1.3.js"></script>
+                <script src="js/jquery.waypoints.min.js"></script>
+                <script src="js/jquery.stellar.min.js"></script>
+                <script src="js/owl.carousel.min.js"></script>
+                <script src="js/jquery.magnific-popup.min.js"></script>
+                <script src="js/aos.js"></script>
+                <script src="js/jquery.animateNumber.min.js"></script>
+                <script src="js/scrollax.min.js"></script>
+
+                <script src="js/main.js"></script>
+
+    </body>
+
+</html>
