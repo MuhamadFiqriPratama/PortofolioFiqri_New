@@ -12,6 +12,15 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Fuzzy+Bubbles:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mogra&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -92,17 +101,20 @@
         }
     });
 
-    // Custom smooth scroll lambat ke atas
+    // Fungsi deteksi apakah perangkat adalah mobile
+    function isMobileDevice() {
+        return window.innerWidth <= 768;
+    }
+
+    // Smooth scroll ke atas dengan kecepatan berbeda tergantung perangkat
     function scrollToTop() {
-        const duration = 1000; // Lama animasi dalam milidetik (1000ms = 1 detik)
+        const duration = isMobileDevice() ? 1200 : 800; // Lebih lambat di mobile
         const start = window.scrollY;
         const startTime = performance.now();
 
         function scrollStep(timestamp) {
             const progress = timestamp - startTime;
-            const percent = Math.min(progress / duration, 1); // Batasi ke max 1
-
-            // Ease-out effect (decelerate)
+            const percent = Math.min(progress / duration, 1);
             const ease = 1 - Math.pow(1 - percent, 3);
 
             window.scrollTo(0, start * (1 - ease));
@@ -114,6 +126,9 @@
 
         requestAnimationFrame(scrollStep);
     }
+
+    // Tambahkan event click
+    backToTopBtn.addEventListener("click", scrollToTop);
 </script>
 
 
@@ -172,6 +187,25 @@
             font-weight: 700;
             font-style: normal;
         }
+        
+        .text-6 {
+            font-family: "Fuzzy Bubbles", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        .text-7 {
+            font-family: "Boogaloo", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #ffc107;
+        }
+        
+        .text-8 {
+            font-family: "Fuzzy Bubbles", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
     </style>
 
     </head>
@@ -183,17 +217,19 @@
                 <div class="row d-flex flex-wrap align-items-center">
                     <!-- Gambar -->
                     <div class="col-md-6 order-md-2 order-1 img-box d-flex justify-content-center">
-                        <div class="hero-image-box" style="background-image: url('images/bg_1.jpg');">
+                        <div class="hero-image-box" style="background-image: url('asset/1.png');">
                             <div class="hero-border"></div>
                         </div>
                     </div>
                     <!-- Teks -->
                     <div class="col-md-6 order-md-1 order-2 d-flex align-items-center">
                         <div class="text-box text ftco-animate w-100">
-                            <span class="subheading">Hello!</span>
-                            <h2 class="mb-4 mt-3">I'm <span>Muhamad Fiqri Pratama</span></h2>
-                            <h2 class="mb-4 mt-3">
-                                I'm a <span class="typed-text"></span><span class="cursor">|</span>
+                            <span class="text-6 text-white" style="font-size: 1.5rem;">Hello!</span>
+                            <h2 class="mb-4 mt-3"><span class="text-7" style="font-size: 2rem;">I'am</span>
+                                <span class="text-8">Muhamad Fiqri Pratama</span></h2>
+                            <h2 class="mb-4 mt-3" style="font-size: 1.5rem;">
+                                <span style="font-size: 1.5rem;">I'm a</span>
+                                <span class="typed-text"></span><span class="cursor">|</span>
                             </h2>
                             <p class="mb-4">Saya seorang 2D Artist yang senang berkembang bersama para developer indie game.</p>
                             <div class="btn-group-wrapper mt-3">
@@ -243,14 +279,12 @@
             /* 1. Section tinggi layar & posisi tengah */
             
             @media (min-width: 768px) {
-                /* Tambahkan jarak di antara teks dan gambar */
                 .text-box {
                     padding-right: 30px;
-                    /* jarak dari teks ke gambar */
                 }
                 .hero-image-box {
-                    margin-left: 30px;
-                    /* jarak dari gambar ke teks */
+                    margin-left: 60px;
+                    /* geser lebih ke kanan */
                 }
             }
             
@@ -263,45 +297,23 @@
             
             .hero-image-box {
                 width: 100%;
-                height: 400px;
+                height: 500px;
+                /* diperbesar */
                 background-size: cover;
                 background-position: center;
-                border: 3px solid transparent;
-                border-radius: 8px;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                border: none;
+                /* hilangkan border */
+                border-radius: 0;
+                /* bentuk kotak */
+                box-shadow: none;
+                /* hilangkan bayangan jika tidak diperlukan */
                 position: relative;
-                z-index: 1;
-                background-clip: padding-box;
                 overflow: hidden;
             }
-            /* 3. Border gradasi animasi */
+            /* Hapus pseudo-element ::before karena kita tidak perlu border animasi */
             
             .hero-image-box::before {
-                content: '';
-                position: absolute;
-                inset: 0;
-                border-radius: 8px;
-                padding: 3px;
-                background: linear-gradient(270deg, #ff8a00, #e52e71, #00c3ff, #ff8a00);
-                background-size: 400% 400%;
-                animation: borderGradient 8s ease infinite;
-                z-index: -1;
-                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-                -webkit-mask-composite: xor;
-                mask-composite: exclude;
-            }
-            /* 4. Animasi gradasi */
-            
-            @keyframes borderGradient {
-                0% {
-                    background-position: 0% 50%;
-                }
-                50% {
-                    background-position: 100% 50%;
-                }
-                100% {
-                    background-position: 0% 50%;
-                }
+                display: none !important;
             }
             /* 5. Teks */
             
@@ -335,7 +347,7 @@
                     <div class="col-md-6 col-lg-5 d-flex">
                         <div class="img-about img d-flex align-items-stretch">
                             <div class="overlay"></div>
-                            <div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/bg_1.png);">
+                            <div class="img d-flex align-self-stretch align-items-center" style="background-image:url(asset/2.png);">
                             </div>
                         </div>
                     </div>
@@ -411,9 +423,9 @@
                                 <img style="border-radius: 10px; height: 110px; width: 110px" src="asset/Adobe_Illustrator_CC_icon.svg" alt="Illustrator" />
                             </div>
                             <div class="desc mt-3">
-                                <h3 class="mb-4">Adobe Illustrator</h3>
+                                <h3 class="mb-4 text-8">Adobe Illustrator</h3>
                                 <hr class="divider" />
-                                <p class="text-white">Digunakan untuk membuat visual 2D berbasis vector untuk asset, background, dan character dalam game.</p>
+                                <p class="text-white">Digunakan untuk membuat visual 2D berbasis vector untuk asset, background, dan character dalam game</p>
                             </div>
                         </a>
                     </div>
@@ -425,9 +437,9 @@
                                 <img style="border-radius: 10px;" src="asset/Photoshop-logo.png" alt="Photoshop" />
                             </div>
                             <div class="desc mt-3">
-                                <h3 class="mb-3">Adobe Photoshop</h3>
+                                <h3 class="mb-3 text-8">Adobe Photoshop</h3>
                                 <hr class="divider" />
-                                <p class="text-white">Untuk visual semi-realism dan desain poster.</p>
+                                <p class="text-white">Untuk visual semi-realism dan desain poster sesuai kebutuhan</p>
                             </div>
                         </a>
                     </div>
@@ -439,9 +451,9 @@
                                 <img style="border-radius: 10px; height: 100px; width: 100px" src="asset/Logo_Aseprite.png" alt="Aseprite" />
                             </div>
                             <div class="desc mt-3">
-                                <h3 class="mb-3">Aseprite</h3>
+                                <h3 class="mb-3 text-8">Aseprite</h3>
                                 <hr class="divider" />
-                                <p class="text-white">Untuk membuat pixel art dan animasi karakter dalam game.</p>
+                                <p class="text-white">Untuk membuat pixel art dan animasi karakter dalam game</p>
                             </div>
                         </a>
                     </div>
@@ -453,9 +465,9 @@
                                 <img style="border-radius: 10px; height: 100px; width: 100px" src="asset/procreate-pocket-2018-08-03.avif" alt="Procreate" />
                             </div>
                             <div class="desc mt-3">
-                                <h3 class="mb-3">Procreate</h3>
+                                <h3 class="mb-3 text-8">Procreate</h3>
                                 <hr class="divider" />
-                                <p class="text-white">Untuk membuat animasi, sketch, dan asset sederhana.</p>
+                                <p class="text-white">Untuk membuat animasi, sketch, dan asset sederhana</p>
                             </div>
                         </a>
                     </div>
@@ -464,12 +476,12 @@
                     <div class="col-lg-4 col-md-6 mb-4 text-center d-flex ftco-animate">
                         <a class="flex-fill software-card clipstudio">
                             <div class="icon-wrapper">
-                                <img style="border-radius: 10px;    " src="asset/pngwing.com (13).png" alt="Clip Studio Paint" />
+                                <img style="border-radius: 10px;" src="asset/pngwing.com (13).png" alt="Clip Studio Paint" />
                             </div>
                             <div class="desc mt-3">
-                                <h3 class="mb-3">Clip Studio Paint</h3>
+                                <h3 class="mb-3 text-8">Clip Studio Paint</h3>
                                 <hr class="divider" />
-                                <p class="text-white">Untuk membuat ilustrasi anime sederhana maupun kompleks.</p>
+                                <p class="text-white">Untuk membuat ilustrasi dengan style anime baik sederhana maupun kompleks</p>
                             </div>
                         </a>
                     </div>
@@ -961,17 +973,17 @@
             }
             
             .img2 {
-                background-image: url('asset/Logo_Aseprite.png');
+                background-image: url('asset/yellow-chibi.png');
                 animation-delay: 0.4s;
             }
             
             .img3 {
-                background-image: url('asset/Photoshop-logo.png');
+                background-image: url('asset/blue-chibi.png');
                 animation-delay: 0.8s;
             }
             
             .img4 {
-                background-image: url('asset/procreate-pocket-2018-08-03.avif');
+                background-image: url('asset/red-chibi.png');
                 animation-delay: 1.2s;
             }
             /* Animasi ke kanan, lalu tunggu, lalu ke kiri, lalu tunggu */
@@ -1047,48 +1059,69 @@
                 </div>
 
                 <div class="row d-flex contact-info mb-5">
+                    <!-- Instagram -->
                     <div class="icon1 col-md-6 col-lg-3 d-flex ftco-animate">
                         <div class="align-self-stretch box p-4 text-center">
                             <div class="icon d-flex align-items-center justify-content-center">
-                                <i class="fa-brands fa-instagram fa-3x" style="color: #ffc107;"></i>
+                                <a href="https://www.instagram.com/mhmd_fiqq?igsh=cTI0MTR0MGVsdmx6" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-instagram fa-3x" style="color: #ffc107;"></i>
+                                </a>
                             </div>
-
                             <h3 class="mb-4">Instagram</h3>
                             <p>
-                                <a href="tel://1234567920">@mhmd_fiqq</a>
+                                <a href="https://www.instagram.com/mhmd_fiqq?igsh=cTI0MTR0MGVsdmx6" target="_blank" rel="noopener noreferrer">@mhmd_fiqq</a>
                             </p>
                         </div>
                     </div>
+
+                    <!-- TikTok -->
                     <div class="icon1 col-md-6 col-lg-3 d-flex ftco-animate">
                         <div class="align-self-stretch box p-4 text-center">
                             <div class="icon d-flex align-items-center justify-content-center">
-                                <i class="fa-brands fa-tiktok fa-3x" style="color: #ffc107;"></i>
+                                <a href="https://www.tiktok.com/@onzyhn_?_t=ZS-8xWvczm03qE&_r=1" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-tiktok fa-3x" style="color: #ffc107;"></i>
+                                </a>
                             </div>
-                            <h3 class="mb-4">Tiktok</h3>
+                            <h3 class="mb-4">TikTok</h3>
                             <p>
-                                <a href="tel://1234567920">@onzyhn_</a>
+                                <a href="https://www.tiktok.com/@onzyhn_?_t=ZS-8xWvczm03qE&_r=1" target="_blank" rel="noopener noreferrer">@onzyhn_</a>
                             </p>
                         </div>
                     </div>
+
+                    <!-- YouTube -->
                     <div class="icon1 col-md-6 col-lg-3 d-flex ftco-animate">
                         <div class="align-self-stretch box p-4 text-center">
                             <div class="icon d-flex align-items-center justify-content-center">
-                                <i class="fa-brands fa-youtube fa-3x" style="color: #ffc107;"></i>
+                                <a href="https://youtube.com/@muhamadfiqripratama7887?si=otiz3cmwWqGQbR6X" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-youtube fa-3x" style="color: #ffc107;"></i>
+                                </a>
                             </div>
-                            <h3 class="mb-4">Youtube</h3>
-                            <p><a href="mailto:info@yoursite.com">@muhamadfiqrioratama787</a></p>
+                            <h3 class="mb-4">YouTube</h3>
+                            <p>
+                                <a href="https://youtube.com/@muhamadfiqripratama7887?si=otiz3cmwWqGQbR6X" target="_blank" rel="noopener noreferrer">@muhamadfiqripratama7887</a>
+                            </p>
                         </div>
                     </div>
+
+                    <!-- LinkedIn -->
                     <div class="icon1 col-md-6 col-lg-3 d-flex ftco-animate">
                         <div class="align-self-stretch box p-4 text-center">
                             <div class="icon d-flex align-items-center justify-content-center">
-                                <i class="fa-brands fa-linkedin-in fa-3x" style="color: #ffc107;"></i>
+                                <a href="https://www.linkedin.com/in/muhamad-fiqri-pratama-491553371?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-linkedin-in fa-3x" style="color: #ffc107;"></i>
+                                </a>
                             </div>
-                            <h3 class="mb-4">Linkedin</h3>
-                            <p><a href="#">yoursite.com</a></p>
+                            <h3 class="mb-4">LinkedIn</h3>
+                            <p>
+                                <a href="https://www.linkedin.com/in/muhamad-fiqri-pratama-491553371?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">
+                    muhamad-fiqri-pratama
+                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
+
 
                 <style>
                     /* Hover efek: membesarkan ikon */
