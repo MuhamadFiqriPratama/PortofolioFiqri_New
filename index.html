@@ -101,25 +101,25 @@
         }
     });
 
-    // Fungsi deteksi apakah perangkat adalah mobile
+    // Deteksi apakah perangkat adalah mobile
     function isMobileDevice() {
         return window.innerWidth <= 768;
     }
 
-    // Smooth scroll ke atas dengan kecepatan berbeda tergantung perangkat
+    // Smooth scroll ke atas TANPA delay awal
     function scrollToTop() {
-        const duration = isMobileDevice() ? 1200 : 800; // Lebih lambat di mobile
+        const duration = isMobileDevice() ? 1000 : 800; // Durasi sedang
         const start = window.scrollY;
         const startTime = performance.now();
 
         function scrollStep(timestamp) {
-            const progress = timestamp - startTime;
-            const percent = Math.min(progress / duration, 1);
-            const ease = 1 - Math.pow(1 - percent, 3);
+            const elapsed = timestamp - startTime;
+            const progress = Math.min(elapsed / duration, 1);
 
-            window.scrollTo(0, start * (1 - ease));
+            // Linear easing (langsung bergerak)
+            window.scrollTo(0, start * (1 - progress));
 
-            if (percent < 1) {
+            if (progress < 1) {
                 requestAnimationFrame(scrollStep);
             }
         }
@@ -127,9 +127,10 @@
         requestAnimationFrame(scrollStep);
     }
 
-    // Tambahkan event click
+    // Jalankan saat tombol diklik
     backToTopBtn.addEventListener("click", scrollToTop);
 </script>
+
 
 
 
@@ -328,7 +329,7 @@
                     flex-direction: column;
                 }
                 .hero-image-box {
-                    height: 300px;
+                    height: 325px;
                     margin-bottom: 20px;
                 }
                 .text-box {
@@ -535,23 +536,23 @@
             /* Hover background dengan GIF */
             
             .illustrator:hover {
-                background-image: url('https://media.giphy.com/media/d31vTpVi1LAcDvdm/giphy.gif');
+                background-image: url('asset/IMG_0430.GIF');
             }
             
             .photoshop:hover {
-                background-image: url('https://media.giphy.com/media/l0HUpt2s9Pclgt9Vm/giphy.gif');
+                background-image: url('asset/IMG_0430.GIF');
             }
             
             .aseprite:hover {
-                background-image: url('https://media.giphy.com/media/3oKIPsx2VAYAgEHC12/giphy.gif');
+                background-image: url('asset/IMG_0430.GIF');
             }
             
             .procreate:hover {
-                background-image: url('https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif');
+                background-image: url('asset/IMG_0430.GIF');
             }
             
             .clipstudio:hover {
-                background-image: url('https://media.giphy.com/media/3oKIPoPc8tK6vF9S3O/giphy.gif');
+                background-image: url('asset/IMG_0430.GIF');
             }
             /* Responsif */
             
@@ -722,9 +723,9 @@
         <section class="ftco-section" id="project-section">
             <div class="container">
                 <!-- Title -->
-                <div class="row justify-content-center mb-4">
+                <div class="row justify-content-center mb-3">
                     <div class="col-md-7 heading-section text-center ftco-animate">
-                        <h2 class="mb-4 text-4">Project</h2>
+                        <h2 class="mb-3 text-4">Project</h2>
                     </div>
                 </div>
 
@@ -740,128 +741,123 @@
                     </div>
                 </div>
 
-                <!-- Project Grid -->
-                <div class="row g-4 ftco-animate">
+                <!-- Grid Wrapper untuk menjaga tinggi -->
+                <div class="project-grid-wrapper">
+                    <div class="row g-3 ftco-animate">
 
-                    <!-- Project 1 -->
-                    <div class="col-12 col-sm-6 col-md-4 project-item show ftco-animate" data-category="uiux">
-                        <img src="asset/Asset Web (1).png" class="project-preview" alt="Project 1" data-bs-toggle="modal" data-bs-target="#project1">
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="col-12 col-sm-6 col-md-4 project-item show ftco-animate" data-category="uiux">
-                        <img src="asset/Asset Web-Suki.png" class="project-preview" alt="Project 2" data-bs-toggle="modal" data-bs-target="#project2">
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="col-12 col-sm-6 col-md-4 project-item show ftco-animate" data-category="illustration">
-                        <img src="asset/Asset Web Encep.png" class="project-preview" alt="Project 3" data-bs-toggle="modal" data-bs-target="#project3">
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="col-12 col-sm-6 col-md-4 project-item show ftco-animate" data-category="pixel">
-                        <img src="asset/your-image4.jpg" class="project-preview" alt="Project 4" data-bs-toggle="modal" data-bs-target="#project4">
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Modal Project 1 -->
-            <div class="modal fade ftco-animate" id="project1" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-md modal-dialog-centered">
-                    <div class="modal-content p-4">
-                        <div class="modal-body text-center">
-                            <img src="asset/Screenshot 2025-06-21 171756.png" class="img-fluid rounded mb-5" alt="Project 1">
-                            <h5 class="fw-bold mb-4" style="color: #000; font-size: 24px;">UI/UX Bloom Flower</h5>
-                            <p class="desc mb-5" style="font-size: 16px;">
-                                Saya dan teman teman saya membuat UI/UX Website Toko Bunga bernama "Bloom Flower" yang dimana warna UI nya didominasi oleh pink bagaikan bunga sakura
-                            </p>
-                            <div class="d-flex justify-content-between flex-wrap gap-2">
-                                <button class="btn px-4 rounded" style="background-color: #dc3545; color: white; font-size: 16px;" data-bs-dismiss="modal">Tutup</button>
-                                <a href="https://contoh-link.com" target="_blank" class="btn px-4 rounded" style="background-color: #0d6efd; color: white; font-size: 16px;">
-            Visit <i class="fa-solid fa-arrow-right ms-2"></i>
-          </a>
-                            </div>
+                        <!-- Project Items -->
+                        <div class="col-12 col-sm-6 col-md-4 project-item show ftco-animate" data-category="uiux">
+                            <img src="asset/Asset Web (1).png" class="project-preview" alt="Project 1" data-bs-toggle="modal" data-bs-target="#project1">
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Modal Project 2 -->
-            <div class="modal fade ftco-animate" id="project2" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-md modal-dialog-centered">
-                    <div class="modal-content p-4">
-                        <div class="modal-body text-center">
-                            <img src="asset/Asset Web Teka Teki Suki.png" class="img-fluid rounded mb-5" alt="Project 2">
-                            <h5 class="fw-bold mb-4" style="color: #000; font-size: 24px;">Aplikasi Teka Teki Suki</h5>
-                            <p class="desc mb-5" style="font-size: 16px;">
-                                Saya dan teman sekelompok saya membuat aplikasi game tentang teka teki yang dimana pengguna harus menebak jawaban yang benar dari teka teki tersebut, dan nantinya akan semakin susah dan menantang di setiap levelnya
-                            </p>
-                            <div class="d-flex justify-content-between flex-wrap gap-2">
-                                <button class="btn px-4 py-2 rounded" style="background-color: #dc3545; color: white; font-size: 16px;" data-bs-dismiss="modal">Tutup</button>
-                                <a href="https://contoh-link.com" target="_blank" class="btn px-4 py-2 rounded" style="background-color: #0d6efd; color: white; font-size: 16px;">
-            Visit <i class="fa-solid fa-arrow-right ms-2"></i>
-          </a>
-                            </div>
+                        <div class="col-12 col-sm-6 col-md-4 project-item show ftco-animate" data-category="uiux">
+                            <img src="asset/Asset Web-Suki.png" class="project-preview" alt="Project 2" data-bs-toggle="modal" data-bs-target="#project2">
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Modal Project 3 -->
-            <div class="modal fade ftco-animate" id="project3" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-md modal-dialog-centered">
-                    <div class="modal-content p-4">
-                        <div class="modal-body text-center">
-                            <img src="asset/Screenshot 2025-06-22 132438.png" class="img-fluid rounded mb-5" alt="Project 3">
-                            <h5 class="fw-bold mb-4" style="color: #000; font-size: 24px;">Game Encep Lari</h5>
-                            <p class="desc mb-5" style="font-size: 16px;">
-                                Game ini dibuat pada Global Game Jam Bogor Tahun 2024 dan saya menjadi Illustrator 2D nya, saya dan teman sekelompok saya membuat game yang dimana sang bayi harus kabur dari kejaran ibu tiri nya yang jahat, disisi lain sang bayi juga harus menghindari
-                                rintangan yang ada
-                            </p>
-                            <div class="d-flex justify-content-between flex-wrap gap-2">
-                                <button class="btn px-4 py-2 rounded" style="background-color: #dc3545; color: white; font-size: 16px;" data-bs-dismiss="modal">Tutup</button>
-                                <a href="https://contoh-link.com" target="_blank" class="btn px-4 py-2 rounded" style="background-color: #0d6efd; color: white; font-size: 16px;">
-            Visit <i class="fa-solid fa-arrow-right ms-2"></i>
-          </a>
-                            </div>
+                        <div class="col-12 col-sm-6 col-md-4 project-item show ftco-animate" data-category="illustration">
+                            <img src="asset/Asset Web Encep.png" class="project-preview" alt="Project 3" data-bs-toggle="modal" data-bs-target="#project3">
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Modal Project 4 -->
-            <div class="modal fade ftco-animate" id="project4" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-md modal-dialog-centered">
-                    <div class="modal-content p-4">
-                        <div class="modal-body text-center">
-                            <img src="asset/your-image4.jpg" class="img-fluid rounded mb-5" alt="Project 4">
-                            <h5 class="fw-bold mb-4" style="color: #000; font-size: 24px;">Judul Project 4</h5>
-                            <p class="desc mb-5" style="font-size: 16px;">
-                                Deskripsi singkat tentang project 4.
-                            </p>
-                            <div class="d-flex justify-content-between flex-wrap gap-2">
-                                <button class="btn px-4 py-2 rounded" style="background-color: #dc3545; color: white; font-size: 16px;" data-bs-dismiss="modal">Tutup</button>
-                                <a href="https://contoh-link.com" target="_blank" class="btn px-4 py-2 rounded" style="background-color: #0d6efd; color: white; font-size: 16px;">
-            Visit <i class="fa-solid fa-arrow-right ms-2"></i>
-          </a>
-                            </div>
+                        <div class="col-12 col-sm-6 col-md-4 project-item show ftco-animate" data-category="pixel">
+                            <img src="asset/Asset Web-Suki.png" class="project-preview" alt="Project 4" data-bs-toggle="modal" data-bs-target="#project4">
                         </div>
+
                     </div>
                 </div>
             </div>
-
         </section>
 
+        <!-- Modal Project 1 -->
+        <div class="modal fade ftco-animate" id="project1" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+                <div class="modal-content p-4">
+                    <div class="modal-body text-center">
+                        <img src="asset/Screenshot 2025-06-21 171756.png" class="img-fluid rounded mb-5" alt="Project 1">
+                        <h5 class="fw-bold mb-4" style="color: #000; font-size: 24px;">UI/UX Bloom Flower</h5>
+                        <p class="desc mb-5" style="font-size: 16px;">
+                            Saya dan teman teman saya membuat UI/UX Website Toko Bunga bernama "Bloom Flower" yang dimana warna UI nya didominasi oleh pink bagaikan bunga sakura
+                        </p>
+                        <div class="d-flex justify-content-between flex-wrap gap-2">
+                            <button class="btn px-4 rounded" style="background-color: #dc3545; color: white; font-size: 16px;" data-bs-dismiss="modal">Tutup</button>
+                            <a href="https://contoh-link.com" target="_blank" class="btn px-4 rounded" style="background-color: #0d6efd; color: white; font-size: 16px;">
+            Visit <i class="fa-solid fa-arrow-right ms-2"></i>
+          </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Project 2 -->
+        <div class="modal fade ftco-animate" id="project2" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+                <div class="modal-content p-4">
+                    <div class="modal-body text-center">
+                        <img src="asset/Asset Web Teka Teki Suki.png" class="img-fluid rounded mb-5" alt="Project 2">
+                        <h5 class="fw-bold mb-4" style="color: #000; font-size: 24px;">Aplikasi Teka Teki Suki</h5>
+                        <p class="desc mb-5" style="font-size: 16px;">
+                            Saya dan teman sekelompok saya membuat aplikasi game tentang teka teki yang dimana pengguna harus menebak jawaban yang benar dari teka teki tersebut, dan nantinya akan semakin susah dan menantang di setiap levelnya
+                        </p>
+                        <div class="d-flex justify-content-between flex-wrap gap-2">
+                            <button class="btn px-4 py-2 rounded" style="background-color: #dc3545; color: white; font-size: 16px;" data-bs-dismiss="modal">Tutup</button>
+                            <a href="https://contoh-link.com" target="_blank" class="btn px-4 py-2 rounded" style="background-color: #0d6efd; color: white; font-size: 16px;">
+            Visit <i class="fa-solid fa-arrow-right ms-2"></i>
+          </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Project 3 -->
+        <div class="modal fade ftco-animate" id="project3" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+                <div class="modal-content p-4">
+                    <div class="modal-body text-center">
+                        <img src="asset/Screenshot 2025-06-22 132438.png" class="img-fluid rounded mb-5" alt="Project 3">
+                        <h5 class="fw-bold mb-4" style="color: #000; font-size: 24px;">Game Encep Lari</h5>
+                        <p class="desc mb-5" style="font-size: 16px;">
+                            Game ini dibuat pada Global Game Jam Bogor Tahun 2024 dan saya menjadi Illustrator 2D nya, saya dan teman sekelompok saya membuat game yang dimana sang bayi harus kabur dari kejaran ibu tiri nya yang jahat, disisi lain sang bayi juga harus menghindari
+                            rintangan yang ada
+                        </p>
+                        <div class="d-flex justify-content-between flex-wrap gap-2">
+                            <button class="btn px-4 py-2 rounded" style="background-color: #dc3545; color: white; font-size: 16px;" data-bs-dismiss="modal">Tutup</button>
+                            <a href="https://contoh-link.com" target="_blank" class="btn px-4 py-2 rounded" style="background-color: #0d6efd; color: white; font-size: 16px;">
+            Visit <i class="fa-solid fa-arrow-right ms-2"></i>
+          </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Project 4 -->
+        <div class="modal fade ftco-animate" id="project4" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+                <div class="modal-content p-4">
+                    <div class="modal-body text-center">
+                        <img src="asset/your-image4.jpg" class="img-fluid rounded mb-5" alt="Project 4">
+                        <h5 class="fw-bold mb-4" style="color: #000; font-size: 24px;">Judul Project 4</h5>
+                        <p class="desc mb-5" style="font-size: 16px;">
+                            Deskripsi singkat tentang project 4.
+                        </p>
+                        <div class="d-flex justify-content-between flex-wrap gap-2">
+                            <button class="btn px-4 py-2 rounded" style="background-color: #dc3545; color: white; font-size: 16px;" data-bs-dismiss="modal">Tutup</button>
+                            <a href="https://contoh-link.com" target="_blank" class="btn px-4 py-2 rounded" style="background-color: #0d6efd; color: white; font-size: 16px;">
+            Visit <i class="fa-solid fa-arrow-right ms-2"></i>
+          </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <style>
-            /* Container kotak tab */
-            
             .tab-container {
                 background-color: rgba(255, 255, 255, 0.05);
                 border: 2px solid white;
                 border-radius: 50px;
             }
-            /* Tab item */
             
             .filter-tab {
                 padding: 10px 20px;
@@ -878,12 +874,11 @@
                 background-color: #ffc107;
                 color: white;
             }
-            /* Project animation */
             
             .project-item {
                 opacity: 0;
                 transform: translateY(30px);
-                transition: all 1s ease;
+                transition: all 0.5s ease;
                 display: none;
             }
             
@@ -897,7 +892,7 @@
                 width: 100%;
                 border-radius: 10px;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-                transition: transform 4s ease;
+                transition: transform 0.4s ease;
                 cursor: pointer;
             }
             
@@ -905,11 +900,20 @@
                 transform: scale(1.03);
             }
             
+            .project-grid-wrapper {
+                min-height: 400px;
+                /* menjaga tinggi agar elemen bawah tidak meloncat */
+                transition: min-height 0.3s ease;
+            }
+            
             @media (max-width: 576px) {
                 .filter-tab {
                     padding: 8px 14px;
                     font-size: 14px;
                     margin: 4px 6px;
+                }
+                .project-grid-wrapper {
+                    min-height: 300px;
                 }
             }
         </style>
@@ -927,16 +931,20 @@
 
                     projectItems.forEach(item => {
                         item.classList.remove("show");
-                        setTimeout(() => {
+                    });
+
+                    setTimeout(() => {
+                        projectItems.forEach(item => {
                             const itemCategory = item.getAttribute("data-category");
                             if (category === "all" || itemCategory === category) {
                                 item.classList.add("show");
                             }
-                        }, 100);
-                    });
+                        });
+                    }, 100);
                 });
             });
         </script>
+
 
         <div class="moving-image-wrapper ftco-animate">
             <div class="moving-image img4"></div>
@@ -1143,22 +1151,68 @@
 
                     <!-- Form -->
                     <div class="col-md-6 d-flex order-2 order-md-2">
-                        <form action="#" class="bg-light p-4 p-md-5 contact-form w-100">
+                        <form id="contact-form" class="bg-light p-4 p-md-5 contact-form w-100">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Name" />
+                                <input type="text" name="name" class="form-control" placeholder="Your Name" required />
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Your Email" />
+                                <input type="email" name="email" class="form-control" placeholder="Your Email" required />
                             </div>
                             <div class="form-group">
-                                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                                <textarea name="message" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5 rounded" />
+                                <button type="submit" class="btn btn-primary py-3 px-5 rounded submit-btn" style="background-color: #ffc107; border: none; color: white; transition: transform 0.2s ease;">
+          Send Message
+        </button>
                             </div>
                         </form>
                     </div>
                 </div>
+
+                <!-- SweetAlert2 CDN -->
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                <!-- EmailJS SDK -->
+                <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+                <script>
+                    emailjs.init("Md9zfaWZ9ueMQJhvs"); // Public Key
+
+                    document.getElementById("contact-form").addEventListener("submit", function(e) {
+                        e.preventDefault();
+
+                        const button = document.querySelector(".submit-btn");
+                        button.style.transform = "scale(0.95)";
+                        setTimeout(() => (button.style.transform = "scale(1)"), 100);
+
+                        emailjs.sendForm("portfoliofiqri_2025", "template_23zi0em", this).then(
+                            function() {
+                                Swal.fire({
+                                    title: "Terkirim!",
+                                    text: "Pesan kamu berhasil dikirim.",
+                                    imageUrl: "asset/IMG_0427.GIF", // GIF sukses
+                                    imageWidth: 250,
+                                    imageHeight: 250,
+                                    imageAlt: "Success",
+                                    showConfirmButton: false,
+                                    timer: 2500
+                                });
+                                document.getElementById("contact-form").reset();
+                            },
+                            function(error) {
+                                Swal.fire({
+                                    title: "Oops!",
+                                    text: "Gagal mengirim pesan.",
+                                    imageUrl: "asset/IMG_0426.GIF", // GIF error
+                                    imageWidth: 250,
+                                    imageHeight: 250,
+                                    imageAlt: "Error"
+                                });
+                            }
+                        );
+                    });
+                </script>
 
 
                 <footer class="ftco-footer ftco-section">
