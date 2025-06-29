@@ -216,13 +216,8 @@
         <section id="home-section" class="hero">
             <div class="container">
                 <div class="row d-flex flex-wrap align-items-center">
-                    <!-- Gambar -->
-                    <div class="col-md-6 order-md-2 order-1 img-box d-flex justify-content-center">
-                        <div class="hero-image-box" style="background-image: url('asset/1.png');">
-                            <div class="hero-border"></div>
-                        </div>
-                    </div>
-                    <!-- Teks -->
+
+                    <!-- Teks di kiri -->
                     <div class="col-md-6 order-md-1 order-2 d-flex align-items-center">
                         <div class="text-box text ftco-animate w-100">
                             <span class="text-6 text-white" style="font-size: 1.5rem;">Hello!</span>
@@ -234,14 +229,23 @@
                             </h2>
                             <p class="mb-4">Saya seorang 2D Artist yang senang berkembang bersama para developer indie game.</p>
                             <div class="btn-group-wrapper mt-3">
-                                <a href="#" class="btn btn-primary custom-btn rounded p-3">Dwonload My CV</a>
+                                <a href="#" class="btn btn-primary custom-btn rounded p-3">Download My CV</a>
                                 <a href="#" class="btn btn-white btn-outline-white custom-btn rounded p-3">My Portofolio Illustration</a>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Gambar di kanan -->
+                    <div class="col-md-6 order-md-2 order-1 img-box d-flex justify-content-center">
+                        <div class="hero-image-box">
+                            <img src="asset/1.png" alt="Hero Image" class="hero-img">
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
+
 
         <script>
             const texts = ["2D Artist", "UI/UX Designer"];
@@ -277,67 +281,112 @@
         </script>
 
         <style>
-            /* 1. Section tinggi layar & posisi tengah */
-            
-            @media (min-width: 768px) {
-                .text-box {
-                    padding-right: 30px;
-                }
-                .hero-image-box {
-                    margin-left: 60px;
-                    /* geser lebih ke kanan */
-                }
-            }
+            /* === LAYOUT DASAR === */
             
             #home-section {
                 min-height: 100vh;
                 display: flex;
                 align-items: center;
             }
-            /* 2. Hero image box */
+            /* Hero Image Box */
             
             .hero-image-box {
                 width: 100%;
-                height: 500px;
-                /* diperbesar */
-                background-size: cover;
-                background-position: center;
-                border: none;
-                /* hilangkan border */
-                border-radius: 0;
-                /* bentuk kotak */
-                box-shadow: none;
-                /* hilangkan bayangan jika tidak diperlukan */
-                position: relative;
-                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                /* Tambahan padding biar tidak menjorok ke pinggir */
             }
-            /* Hapus pseudo-element ::before karena kita tidak perlu border animasi */
             
-            .hero-image-box::before {
-                display: none !important;
+            .hero-img {
+                width: 100%;
+                max-width: 450px;
+                height: auto;
+                object-fit: contain;
             }
-            /* 5. Teks */
+            /* Teks */
             
             .text-box {
                 padding: 20px;
+                text-align: left;
             }
-            /* 6. Responsive (Mobile only) */
+            /* Button */
             
-            @media (max-width: 768px) {
+            .custom-btn {
+                font-size: 1rem;
+                padding: 12px 24px;
+                margin: 5px 10px 5px 0;
+                transition: all 0.3s ease;
+                white-space: nowrap;
+            }
+            
+            .btn-group-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            /* === RESPONSIVE MOBILE === */
+            
+            @media (max-width: 767px) {
                 #home-section {
                     padding-top: 80px;
                     flex-direction: column;
                 }
-                .hero-image-box {
-                    height: 325px;
-                    margin-bottom: 20px;
+                .hero-img {
+                    width: 80%;
+                    max-height: 300px;
                 }
                 .text-box {
                     text-align: center;
                     margin-top: 20px;
                 }
-                .text-box .btn {
-                    margin: 5px;
+                .btn-group-wrapper {
+                    justify-content: center;
+                }
+                .custom-btn {
+                    width: 100%;
+                    font-size: 1rem;
+                    padding: 10px;
+                    text-align: center;
+                }
+            }
+            /* === RESPONSIVE TABLET === */
+            
+            @media (min-width: 768px) and (max-width: 1024px) {
+                .hero-img {
+                    width: 80%;
+                    max-height: 400px;
+                }
+                .text-box {
+                    text-align: center;
+                }
+                .btn-group-wrapper {
+                    justify-content: center;
+                }
+                .custom-btn {
+                    font-size: 0.95rem;
+                    padding: 10px 20px;
+                }
+            }
+            /* === RESPONSIVE DESKTOP === */
+            
+            @media (min-width: 1025px) {
+                .hero-img {
+                    width: 100%;
+                    max-width: 450px;
+                    max-height: 500px;
+                }
+                .text-box {
+                    text-align: left;
+                    padding-right: 30px;
+                }
+                .btn-group-wrapper {
+                    justify-content: flex-start;
+                }
+                .custom-btn {
+                    padding: 6px 12px;
+                    font-size: 0.9rem;
                 }
             }
         </style>
@@ -347,8 +396,9 @@
                 <div class="row d-flex">
                     <div class="col-md-6 col-lg-5 d-flex">
                         <div class="img-about img d-flex align-items-stretch">
-                            <div class="overlay"></div>
-                            <div class="img d-flex align-self-stretch align-items-center" style="background-image:url(asset/2.png);">
+                            <div class="img-about img d-flex justify-content-center align-items-center">
+                                <div class="overlay"></div>
+                                <div class="img" style="background-image:url(asset/2.png);"></div>
                             </div>
                         </div>
                     </div>
@@ -372,6 +422,59 @@
                 </div>
             </div>
         </section>
+
+        <style>
+            /* Bungkus gambar luar */
+            
+            .img-about {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                /* center horizontal */
+                align-items: center;
+                /* center vertical */
+                padding: 0 15px;
+            }
+            /* Gambar di dalam */
+            
+            .img-about .img {
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+            }
+            /* Mobile */
+            
+            @media (max-width: 767px) {
+                .img-about {
+                    margin-bottom: 20px;
+                }
+                .img-about .img {
+                    width: 80%;
+                    height: 300px;
+                }
+            }
+            /* Tablet */
+            /* Sembunyikan gambar di HP */
+            
+            @media (max-width: 767px) {
+                .img-about {
+                    display: none !important;
+                }
+            }
+            /* Desktop */
+            
+            @media (min-width: 1025px) {
+                .img-about .img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        </style>
 
         <section class="ftco-section ftco-no-pb" id="resume-section">
             <div class="container">
